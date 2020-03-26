@@ -12,9 +12,9 @@ lab2:
     mov r3, #1
     lsl r3, r3, r2
 
-    // (a - b) * 3
+    // (a - b) * 3 + 2^c
     sub r0, r1
-    mla r0, r1, r4, r3
+    mla r3, r0, r4, r3
 
     pop {lr}
     
