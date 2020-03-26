@@ -11,11 +11,14 @@
  * vector table 
  */
 .type vtable, %object
+.type __hard_reset__, %function
 vtable:
     .word __stack_start
     .word __hard_reset__+1
     .size vtable, .-vtable
 __hard_reset__:
-    ldr r0, =__stack_start
-    mov sp, r0
-    b __hard_reset__
+    // initialize stack here
+    // if not initialized yet
+    bl lab2
+    _loop: b _loop
+    .size __hard_reset__, .-__hard_reset__
